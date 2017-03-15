@@ -7,9 +7,6 @@ import re
 class SpaBoiler():
     """Class to manage generation and storage of new SPA's."""
 
-    # Jinja 2 env delimiters
-    # http://jinja.pocoo.org/docs/2.9/api/#high-level-api
-
     def __init__(self, **kwargs):
         """Init for Project."""
         required_kwargs = []
@@ -43,10 +40,6 @@ class SpaBoiler():
         template_loader = jinja2.FileSystemLoader(self.template_dirs)
         template_env = jinja2.Environment(
             loader=template_loader,
-            # block_start_string = self.block_start_string,
-            # block_end_string = self.block_end_string,
-            # variable_start_string = self.variable_start_string,
-            # variable_end_string = self.variable_end_string,
         )
         self.env = template_env
 
@@ -58,7 +51,7 @@ class SpaBoiler():
         # Throw error if project exists already
         if name in next(os.walk(self.projects_dir))[1]:
             raise ValueError(
-                'A Project has been created with that name. Try another next time.')
+                'Project already exists with that name. Try another.')
 
         # Project Folders
         project_dir = os.path.join(self.projects_dir, name)
@@ -69,7 +62,7 @@ class SpaBoiler():
         project_templates_dir = os.path.join(project_app_dir, "templates")
         project_templates_actions_dir = os.path.join(project_templates_dir,
                                                      "actions")
-
+        # Project Folder Skeleton
         project_skeleton = [
             project_dir,
             project_app_dir,
@@ -128,7 +121,8 @@ class SpaBoiler():
             template_vars=template_vars)
 
         # Create project css file
-        project_css_file = os.path.join(project_static_css_dir, "%s.css" % name)
+        project_css_file = os.path.join(project_static_css_dir, "%s.css" %
+                                        name)
         stock_file = os.path.join(self.stock_dir, "spa", "project.css")
         self.stock_project_file(
             stock_file=stock_file,
@@ -136,7 +130,8 @@ class SpaBoiler():
             template_vars=template_vars)
 
         # Create init jinja file
-        init_jinja_file = os.path.join(project_templates_actions_dir, "init.jinja")
+        init_jinja_file = os.path.join(project_templates_actions_dir,
+                                       "init.jinja")
         stock_file = os.path.join(self.stock_dir, "spa", "init.jinja")
         self.stock_project_file(
             stock_file=stock_file,
@@ -158,9 +153,6 @@ class SpaBoiler():
             stock_file=stock_file,
             new_file=index_file,
             template_vars=template_vars)
-
-
-
 
     def stock_project_file(self, **kwargs):
         """Provide file with variables then stock the project with it."""
@@ -208,5 +200,4 @@ class SpaBoiler():
 
 if __name__ == "__main__":
     spa_boiler = SpaBoiler()
-    spa_boiler.create_spa(name="alissaisawesomePROJECT", launcher=False)
-
+    spa_boiler.create_spa(name="testProject", launcher=False)
