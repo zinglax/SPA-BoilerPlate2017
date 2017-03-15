@@ -127,6 +127,14 @@ class SpaBoiler():
             new_file=project_js_file,
             template_vars=template_vars)
 
+        # Create project css file
+        project_css_file = os.path.join(project_static_css_dir, "%s.css" % name)
+        stock_file = os.path.join(self.stock_dir, "spa", "project.css")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=project_css_file,
+            template_vars=template_vars)
+
         # Create init jinja file
         init_jinja_file = os.path.join(project_templates_actions_dir, "init.jinja")
         stock_file = os.path.join(self.stock_dir, "spa", "init.jinja")
@@ -143,7 +151,7 @@ class SpaBoiler():
             new_file=base_file,
             template_vars=template_vars)
 
-        # Create base html file
+        # Create index html file
         index_file = os.path.join(project_templates_dir, "index.html")
         stock_file = os.path.join(self.stock_dir, "spa", "index.html")
         self.stock_project_file(
@@ -160,6 +168,8 @@ class SpaBoiler():
         if not all(arg in kwargs for arg in required_kwargs):
             raise ValueError(
                 'Not all required key word arguments have been passed in')
+
+        # Assign Keyword arguments
         stock_file = kwargs['stock_file']
         new_file = kwargs['new_file']
         template_vars = kwargs['template_vars']
