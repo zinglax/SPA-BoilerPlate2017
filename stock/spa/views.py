@@ -59,6 +59,10 @@ def render_html_from_action(action, data):
     action_templates = os.path.join(app.config['TEMPLATES_DIR'], 'actions')
     template_dirs = [x[0] for x in os.walk(action_templates)]
     jinja_env = create_jinja2_env(template_dirs=template_dirs)
+
+    print(action_templates)
+    print(template_dirs)
+
     # app.logger.info(data)
     return jinja_env.get_template("%s.jinja" % action).render(data=data)
 

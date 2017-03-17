@@ -38,23 +38,21 @@ class SpaBoiler():
         """A jinja2 Environment with templates loaded."""
         print("TEMPLATE DIRS: " + self.template_dirs)
         template_loader = jinja2.FileSystemLoader(self.template_dirs)
-        template_env = jinja2.Environment(
-            loader=template_loader,
-        )
+        template_env = jinja2.Environment(loader=template_loader, )
         self.env = template_env
 
-    def create_spa(self, name="TestProject", launcher=False):
+    def create_spa(self, **kwargs):
         """Create Application."""
         # Create Project dir
         os.makedirs(self.projects_dir, exist_ok=True)
 
         # Throw error if project exists already
-        if name in next(os.walk(self.projects_dir))[1]:
+        if kwargs["name"] in next(os.walk(self.projects_dir))[1]:
             raise ValueError(
                 'Project already exists with that name. Try another.')
 
         # Project Folders
-        project_dir = os.path.join(self.projects_dir, name)
+        project_dir = os.path.join(self.projects_dir, kwargs["name"])
         project_app_dir = os.path.join(project_dir, "app")
         project_static_dir = os.path.join(project_app_dir, "static")
         project_static_css_dir = os.path.join(project_static_dir, "css")
@@ -78,7 +76,49 @@ class SpaBoiler():
             os.makedirs(d, exist_ok=True)
 
         # Render spab files (Spa Boilerplate)
-        template_vars = {"name": name, "semantic_name": name}
+        template_vars = {
+                        "semantic_name" : kwargs["semantic_name"],
+                        "name" : kwargs["name"],
+                        "pooled_server_ip" : kwargs["pooled_server_ip"],
+                        "ssh_key" : kwargs["ssh_key"],
+                        "project_name" : kwargs["project_name"],
+                        "project_path" : kwargs["project_path"],
+                        "venv_name" : kwargs["venv_name"],
+                        "production_subdomain" : kwargs["production_subdomain"],
+                        "development_subdomain" : kwargs["development_subdomain"],
+                        }
+
+        # Create application.wsgi
+        wsgi_file = os.path.join(project_dir, "application.wsgi")
+        stock_file = os.path.join(self.stock_dir, "spa", "application.wsgi")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=wsgi_file,
+            template_vars=template_vars)
+
+        # Create apache.conf
+        apache_file = os.path.join(project_dir, kwargs["project_name"] + ".conf")
+        stock_file = os.path.join(self.stock_dir, "spa", "apache.conf")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=apache_file,
+            template_vars=template_vars)
+
+        # Create fabfile.py
+        fabfile_file = os.path.join(project_dir, "fabfile.py")
+        stock_file = os.path.join(self.stock_dir, "spa", "fabfile.py")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=fabfile_file,
+            template_vars=template_vars)
+
+        # Create requirements.txt
+        requirements_file = os.path.join(project_dir, "requirements.txt")
+        stock_file = os.path.join(self.stock_dir, "spa", "requirements.txt")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=requirements_file,
+            template_vars=template_vars)
 
         # Create config.py
         config_file = os.path.join(project_dir, "config.py")
@@ -113,7 +153,7 @@ class SpaBoiler():
             template_vars=template_vars)
 
         # Create project js file
-        project_js_file = os.path.join(project_static_js_dir, "%s.js" % name)
+        project_js_file = os.path.join(project_static_js_dir, "%s.js" % kwargs["name"])
         stock_file = os.path.join(self.stock_dir, "spa", "project.js")
         self.stock_project_file(
             stock_file=stock_file,
@@ -121,8 +161,8 @@ class SpaBoiler():
             template_vars=template_vars)
 
         # Create project css file
-        project_css_file = os.path.join(project_static_css_dir, "%s.css" %
-                                        name)
+        project_css_file = os.path.join(project_static_css_dir,
+                                        "%s.css" % kwargs["name"])
         stock_file = os.path.join(self.stock_dir, "spa", "project.css")
         self.stock_project_file(
             stock_file=stock_file,
@@ -175,21 +215,25 @@ class SpaBoiler():
                 # Loop every line in the stock file.
                 for line in f:
 
-                    # Search line for variables.
-                    p = re.compile(
-                        r'^.*(?P<template_var>__var_(?P<var>.*)__).*$')
-                    m = p.search(line)
+                    # For
+                    for var in template_vars:
+                        
 
-                    # Variable Found.
-                    if m:
+                        # Search line for variables.
+                        p = re.compile(
+                            r'^.*(?P<template_var>__var_(?P<var>.*)__).*$')
+                        m = p.search(line)
 
-                        # Replace variables from template_vars or nothing.
-                        if m.group("var") in template_vars:
-                            line = line.replace("__var_%s__" % m.group("var"),
-                                                template_vars[m.group("var")])
-                        else:
-                            line = line.replace("__var_%s__" % m.group("var"),
-                                                "")
+                        # Variable Found.
+                        if m:
+
+                            # Replace variables from template_vars or nothing.
+                            if m.group("var") in template_vars:
+                                line = line.replace("__var_%s__" % m.group("var"),
+                                                    template_vars[m.group("var")])
+                            else:
+                                line = line.replace("__var_%s__" % m.group("var"),
+                                                    "")
 
                     # Write line to new file.
                     n.write(line)
@@ -200,4 +244,13 @@ class SpaBoiler():
 
 if __name__ == "__main__":
     spa_boiler = SpaBoiler()
-    spa_boiler.create_spa(name="testProject", launcher=False)
+    spa_boiler.create_spa(
+        semantic_name="dylansawesome",
+        name="dylansawesome",
+        pooled_server_ip="104.131.106.63",
+        ssh_key="/home/dylan/.ssh/digital_ocean",
+        project_name="dylansawesome",
+        project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/dylansawesome",
+        venv_name="dylansawesome",
+        production_subdomain="dylansawesome",
+        development_subdomain="dev.dylansawesome" )
