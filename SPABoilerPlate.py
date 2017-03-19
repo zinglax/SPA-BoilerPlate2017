@@ -217,7 +217,6 @@ class SpaBoiler():
 
                     # For
                     for var in template_vars:
-                        
 
                         # Search line for variables.
                         p = re.compile(
@@ -245,12 +244,12 @@ class SpaBoiler():
 if __name__ == "__main__":
     spa_boiler = SpaBoiler()
     spa_boiler.create_spa(
-        semantic_name="dylansawesome",
-        name="dylansawesome",
+        semantic_name="spaboilerplate2017",
+        name="spaboilerplate2017",
         pooled_server_ip="104.131.106.63",
         ssh_key="/home/dylan/.ssh/digital_ocean",
-        project_name="dylansawesome",
-        project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/dylansawesome",
-        venv_name="dylansawesome",
-        production_subdomain="dylansawesome",
-        development_subdomain="dev.dylansawesome" )
+        project_name="spaboilerplate2017",
+        project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/spaboilerplate2017",
+        venv_name="spaboilerplate2017",
+        production_subdomain="spaboilerplate2017",
+        development_subdomain="dev.spaboilerplate2017" )

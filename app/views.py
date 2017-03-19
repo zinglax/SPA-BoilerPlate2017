@@ -6,6 +6,8 @@ import jinja2
 
 script_args = {}
 
+script_args["meta_theme_color"] = "#343D44"
+
 @app.route('/', methods=['GET', 'POST'])
 def page_index():
     page_args = script_args.copy()

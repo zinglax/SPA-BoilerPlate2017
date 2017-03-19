@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css?family=Cinzel|Jim+Nightshade|Lato|Satisfy');
+/*PROJECT: spaboilerplate2017
+
+Google Fonts
+font-family: 'Cinzel', serif;
+font-family: 'Jim Nightshade', cursive;
+font-family: 'Lato', sans-serif;
+font-family: 'Satisfy', cursive;
+
+
+Theme
+#62A1D2
+#EC8440
+#343D44
+*/
+
+h1, h2, h3, h4, h5, h6 {
+	color: #EC8440;
+	background: #343D44;
+	font-family: 'Cinzel', serif;
+	border: solid 1px #62A1D2;
+	border-radius: 3px;
+	margin: 20px;
+	padding: 20px;
+	text-shadow: 1px 1px #62A1D2;
+
+}
+
+#spa {
+	background: #343D44;
+}
+
+p {
+	color: #EC8440;
+	font-family: 'Jim Nightshade', cursive;
+	margin: 10px;
+	padding: 10px;
+}
+
+body {
+    background: #343D44;
+}

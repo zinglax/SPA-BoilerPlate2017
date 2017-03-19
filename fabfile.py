@@ -7,18 +7,18 @@ from fabric.contrib.files import exists
 import os
 
 env.user = "root"
-env.hosts = ['__var_pooled_server_ip__']
-env.key_filename = '__var_ssh_key__'
+env.hosts = ['104.131.106.63']
+env.key_filename = '/home/dylan/.ssh/digital_ocean'
 
 
 def deploy(
         path_to_project="/var/www/",
-        project_name="__var_project_name__",
-        local_dir="__var_project_path__",
-        env_name="__var_venv_name__",
+        project_name="spaboilerplate2017",
+        local_dir="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017",
+        env_name="spaboilerplate2017",
         remote_env_path="/ENVS",
-        path_to_requirements_txt="/var/www/__var_project_name__/requirements.txt",
-        domain="__var_production_subdomain__"):
+        path_to_requirements_txt="/var/www/spaboilerplate2017/requirements.txt",
+        domain="spaboilerplate2017"):
 
     # Create a directory on a remote server, if it doesn't already exists
     if not exists(os.path.join(path_to_project, project_name)):
@@ -67,6 +67,7 @@ def deploy(
     run('a2enmod ssl')
 
     # Lets Encrypt
+    #run('/opt/letsencrypt/letsencrypt-auto --apache -d zinglax.com -d ' + domain + '.zinglax.com')
     run('letsencrypt -n --apache -d ' + domain + '.zinglax.com')
 
     # Restart the apache server
@@ -74,8 +75,8 @@ def deploy(
 
 
 def deploy_prod():
-    deploy(domain="__var_production_subdomain__")
+    deploy(domain="spaboilerplate2017")
 
 
 def deploy_dev():
-    deploy(domain="__var_development_subdomain__")
+    deploy(domain="dev.spaboilerplate2017")

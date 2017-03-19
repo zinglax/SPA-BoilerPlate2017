@@ -6,15 +6,11 @@ import jinja2
 
 script_args = {}
 
-@app.route('/', methods=['GET', 'POST'])
-def page_index():
-    page_args = script_args.copy()
+{{ home_page }}
 
-    # AJAX Action Occurs.
-    if request.method == 'POST' and 'action' in request.get_json():
-        return process_ajax_action(request, page_args=page_args)
-    return render_template('./index.html', **page_args)
-
+{% for route in pages %}
+{{ route }}
+{% endfor %}
 
 def process_ajax_action(request, **kwargs):
     """AJAX Action Occurs. Process the specific action & return JSON response.

@@ -26,3 +26,17 @@ __var_development_subdomain__
 "production_subdomain" : "dylansawesome",
 "development_subdomain" : "dev.dylansawesome",
 }
+
+
+## LATEST WORKING 3/19/17
+(
+semantic_name="dylansawesome",
+name="dylansawesome",
+pooled_server_ip="104.131.106.63",
+ssh_key="/home/dylan/.ssh/digital_ocean",
+project_name="dylansawesome",
+project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/dylansawesome",
+venv_name="dylansawesome",
+production_subdomain="dylansawesome",
+development_subdomain="dev.dylansawesome" 
+)
