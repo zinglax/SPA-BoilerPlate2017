@@ -1,5 +1,7 @@
 # SPA-BoilerPlate2017
-Single Page Application Boiler Plate 
+[Single Page Application Boiler Plate](https://spaboilerplate2017.zinglax.com/)
+
+Site: [https://spaboilerplate2017.zinglax.com/](https://spaboilerplate2017.zinglax.com/)
 
 
 
