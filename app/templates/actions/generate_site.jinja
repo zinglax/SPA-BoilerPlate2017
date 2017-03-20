@@ -1,0 +1,17 @@
+
+<p>Here is the action that creates a new site</p>
+
+<h3>Steps to Site Generation</h3>
+
+<ul>
+	<li>Create SPA Boiler Object</li>
+	<li>Feed in Variables  from GUI AJAX POST ("Site Map Object" ⟹ Used to Generate the whole Project/Website) into SPA Boiler Object's Create/Update Function.</li>
+	<li>Modify a fabfile for zinglax server to redeploy a site. Probably from a git clone rather than an rsync from off the server.</li>
+	<li>Setup AJAX Action to "fab local deploy" a project</li>
+	<li>Create Javascript AJAX Action for local fab deploy & Set onclick="" of Generate Site button to that AJAX Action function.</li>
+</ul>
+
+<h1>QR Code to PDF</h1> 
+
+<a href="/download_project/{{ data.zip_file_path }}" class="">Download</a>
+<a href="/" class="qr-pdf-button">Return</a>
