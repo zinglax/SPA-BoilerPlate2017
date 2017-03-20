@@ -11,6 +11,8 @@ APP_NAME = "spaboilerplate2017"
 VENV_NAME = "spaboilerplate2017"
 APP_DIR = os.path.join(PROD_DIR, "app")
 STATIC_DIR = os.path.join(APP_DIR, "static")
+PROJECTS_DIR = os.path.join(APP_DIR, "projects")
+
 
 # DEBUG ON/OFF
 DEBUG = True
