@@ -4,9 +4,12 @@ from flask import render_template, request, jsonify, url_for, flash, redirect
 import json
 import jinja2
 
+from .SPABoilerPlate import SpaBoiler
+
 script_args = {}
 
 script_args["meta_theme_color"] = "#343D44"
+
 
 @app.route('/', methods=['GET', 'POST'])
 def page_index():
@@ -18,6 +21,11 @@ def page_index():
     return render_template('./index.html', **page_args)
 
 
+@app.route('/download_project/<path:path>')
+def send_project_download(path):
+    return send_from_directory(app.config['PROJECTS_DIR'], path)
+
+
 def process_ajax_action(request, **kwargs):
     """AJAX Action Occurs. Process the specific action & return JSON response.
     """
@@ -27,14 +35,31 @@ def process_ajax_action(request, **kwargs):
         # Values common to the specific page.
         page_args = kwargs['page_args']
 
-
     # Actions
     # ==========================================================================
     if request.get_json()['action'] == "init":
-        '''init
+        '''init.
         '''
         contents_html = render_html_from_action('init', {})
         return json.dumps({'status': 'OK', "init": contents_html})
+
+    if request.get_json()['action'] == "generate_site":
+        '''generate_site.
+        '''
+
+        # TODO
+        # Subprocess create zip file popen and wait for zip to finish
+        # Return Genterated path for downloading in json response
+
+        zip_file_path = request.get_json()['data']['domain'] + ".zip"
+
+        contents_html = render_html_from_action(
+            'generate_site', {"domain": request.get_json()['data']['domain'],
+                              "color": request.get_json()['data']['color'],
+                              "zip_file_path": zip_file_path})
+        return json.dumps({'status': 'OK',
+                           "zip_file_path": zip_file_path,
+                           "generate_site": contents_html})
 
     # No action found
     return json.dumps({'status': 'OK',

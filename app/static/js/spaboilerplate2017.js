@@ -45,6 +45,23 @@ function action_init(){
 }
 
 
+function action_generate_site(){
+
+  var data = {
+    "domain": $($("#domain")[0]).val(),
+    "color": $($("#color")[0]).val()
+  };
+
+  function success(response){
+    console.log( "UPDATING: action_generate_site" );
+    console.log( response['action_generate_site'] );
+    $( "#spa" ).empty();
+    $( "#spa" ).html( response['action_generate_site']);
+  }
+  run_ajax_action("action_generate_site", data, success);
+}
+
+
 /** 
  * Sleep time expects milliseconds
  * @param  {[type]}
