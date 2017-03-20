@@ -9,20 +9,28 @@ font-family: 'Satisfy', cursive;
 
 
 Theme
-#62A1D2
-#EC8440
-#343D44
+#62A1D2 , rgb(98, 161, 210)
+#EC8440 , rgb(236, 132, 64)
+#343D44 , rgb(52, 61, 68)
 */
 
 h1, h2, h3, h4, h5, h6 {
 	color: #EC8440;
-	background: #343D44;
+	background: url(https://media3.giphy.com/media/9UPuJPbiHwo8/200.webp#28) no-repeat center center fixed; 
 	font-family: 'Cinzel', serif;
-	border: solid 1px #62A1D2;
+	border: solid 5px #EC8440;
 	border-radius: 3px;
 	margin: 20px;
 	padding: 20px;
 	text-shadow: 1px 1px #62A1D2;
+	opacity: 0.5;
+
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+
 
 }
 
@@ -39,4 +47,43 @@ p {
 
 body {
     background: #343D44;
+}
+
+input {
+	margin : 10px;
+	padding : 5px;
+}
+
+input[type="text"] {
+	width : 35%;
+	font-family: 'Cinzel', serif;	
+	color: #343D44;
+	border: solid 2px #EC8440;
+	text-shadow: 1px 1px #62A1D2;
+}
+
+input[type="color"] {
+	width : 35%;
+	font-family: 'Cinzel', serif;	
+	color: #343D44;
+	border: solid 2px #EC8440;
+	text-shadow: 1px 1px #62A1D2;
+}
+
+
+input[type="button"] {
+	font-family: 'Satisfy', cursive;
+	background: #62A1D2;
+	color: #343D44;
+	border: solid 2px #EC8440;
+}
+
+li {
+	color: #EC8440;
+	font-family: 'Lato', sans-serif;
+}
+
+ul {
+	border-radius: 30px
+	background: rgba(255,255,255,0.8);
 }
