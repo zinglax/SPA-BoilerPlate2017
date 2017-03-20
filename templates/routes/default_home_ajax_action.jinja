@@ -1,9 +1,0 @@
-@app.route('/', methods=['GET', 'POST'])
-@app.route('/{{ page_name }}', methods=['GET', 'POST'])
-def page_{{ page_name }}():
-    page_args = script_args.copy()
-
-    # AJAX Action Occurs.
-    if request.method == 'POST' and 'action' in request.get_json():
-        return process_ajax_action(request, page_args=page_args)
-    return render_template('./{{ page_name }}.html', **page_args)
