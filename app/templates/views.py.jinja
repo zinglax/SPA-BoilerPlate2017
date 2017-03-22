@@ -6,9 +6,7 @@ import jinja2
 
 script_args = {}
 
-{{ home_page }}
-
-{% for route in pages %}
+{% for route in data.pages %}
 {{ route }}
 {% endfor %}
 

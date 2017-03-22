@@ -45,7 +45,6 @@ def process_ajax_action(request, **kwargs):
         contents_html = render_html_from_action('init', {})
         return json.dumps({'status': 'OK', "init": contents_html})
 
-
     if request.get_json()['action'] == "generate_site":
         '''generate_site.
         '''
@@ -66,19 +65,29 @@ def process_ajax_action(request, **kwargs):
                            "zip_file_path": zip_file_path,
                            "generate_site": contents_html})
 
-
-
     if request.get_json()['action'] == "post_project_json":
         '''post_project_json.
         '''
         print("post_project_json")
-        contents_html = render_html_from_action(
-            'post_project_json', {})
+
+        spa_boiler = SpaBoiler(cur_dir="/var/www/spaboilerplate2017/app/")
+        spa_boiler.create_spa_with_pages(
+            semantic_name=request.get_json()['data']['domain'],
+            name=request.get_json()['data']['domain'],
+            pooled_server_ip="104.131.106.63",
+            ssh_key="/home/dylan/.ssh/digital_ocean",
+            project_name=request.get_json()['data']['domain'],
+            project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/" + request.get_json()['data']['domain'],
+            venv_name=request.get_json()['data']['domain'],
+            production_subdomain=request.get_json()['data']['domain'],
+            development_subdomain="dev." + request.get_json()['data']['domain'],
+            pages=request.get_json()['data']['pages'])
+
+        contents_html = render_html_from_action('post_project_json', {})
         print(contents_html)
         print(request.get_json())
 
-        return json.dumps({'status': 'OK',
-                           "post_project_json": contents_html})
+        return json.dumps({'status': 'OK', "post_project_json": contents_html})
 
     # No action found
     return json.dumps({'status': 'OK',
