@@ -1,6 +1,6 @@
 import os
 from app import app
-from flask import render_template, request, jsonify, url_for, flash, redirect
+from flask import render_template, request, jsonify, url_for, flash, redirect, send_from_directory
 import json
 import jinja2
 
@@ -35,6 +35,8 @@ def process_ajax_action(request, **kwargs):
         # Values common to the specific page.
         page_args = kwargs['page_args']
 
+    print(page_args)
+
     # Actions
     # ==========================================================================
     if request.get_json()['action'] == "init":
@@ -42,6 +44,7 @@ def process_ajax_action(request, **kwargs):
         '''
         contents_html = render_html_from_action('init', {})
         return json.dumps({'status': 'OK', "init": contents_html})
+
 
     if request.get_json()['action'] == "generate_site":
         '''generate_site.
@@ -52,14 +55,30 @@ def process_ajax_action(request, **kwargs):
         # Return Genterated path for downloading in json response
 
         zip_file_path = request.get_json()['data']['domain'] + ".zip"
+        print("ZIP FILE:" + zip_file_path)
 
         contents_html = render_html_from_action(
             'generate_site', {"domain": request.get_json()['data']['domain'],
                               "color": request.get_json()['data']['color'],
                               "zip_file_path": zip_file_path})
+        print(contents_html)
         return json.dumps({'status': 'OK',
                            "zip_file_path": zip_file_path,
                            "generate_site": contents_html})
+
+
+
+    if request.get_json()['action'] == "post_project_json":
+        '''post_project_json.
+        '''
+        print("post_project_json")
+        contents_html = render_html_from_action(
+            'post_project_json', {})
+        print(contents_html)
+        print(request.get_json())
+
+        return json.dumps({'status': 'OK',
+                           "post_project_json": contents_html})
 
     # No action found
     return json.dumps({'status': 'OK',
