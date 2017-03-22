@@ -56,9 +56,41 @@ function action_generate_site(){
     console.log( "UPDATING: action_generate_site" );
     console.log( response['action_generate_site'] );
     $( "#spa" ).empty();
-    $( "#spa" ).html( response['action_generate_site']);
+    $( "#spa" ).html( response['generate_site']);
   }
-  run_ajax_action("action_generate_site", data, success);
+  run_ajax_action("generate_site", data, success);
+}
+
+
+
+function action_post_project_json(){
+
+  var data = {
+    "domain": $($("#domain")[0]).val(),
+    "color": $($("#color")[0]).val(),
+    "pages" : [{
+      "name" : "home",
+      "is_home" : true,
+      "html" : `<!DOCTYPE html>
+<html>
+<body>
+
+<h1>My First Heading</h1>
+
+<p>My first paragraph.</p>
+
+</body>
+</html>`
+    }]
+  };
+
+  function success(response){
+    console.log( "UPDATING: action_post_project_json" );
+    console.log( response['action_post_project_json'] );
+    $( "#spa" ).empty();
+    $( "#spa" ).html( response['post_project_json']);
+  }
+  run_ajax_action("post_project_json", data, success);
 }
 
 
