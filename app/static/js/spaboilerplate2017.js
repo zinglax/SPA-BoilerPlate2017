@@ -39,6 +39,7 @@ function action_init() {
         console.log(response['init']);
         $("#spa").empty();
         $("#spa").html(response['init']);
+        init_blockly(response['toolbox_url'])
     }
     run_ajax_action("init", data, success);
 }
@@ -103,6 +104,39 @@ function action_post_project_json() {
         $("#spa").html(response['post_project_json']);
     }
     run_ajax_action("post_project_json", data, success);
+}
+
+
+/**
+ * Initialize Blockly Workspace
+ */
+function init_blockly(toolbox_url){
+
+  // Get toolbox
+  $( function() {
+    $.ajax({
+        type: "GET",
+    url: toolbox_url,
+    dataType: "xml",
+    success: function(xml) {
+
+      $("#spa").append($(xml).find("#toolbox"));
+
+      window.workspace = Blockly.inject('#blocklyDiv', {
+      toolbox: document.getElementById('toolbox'),
+      zoom: {
+          controls: true,
+          wheel: true,
+          startScale: 1.0,
+          maxScale: 3,
+          minScale: 0.3,
+          scaleSpeed: 1.2,
+          },
+          sounds: false
+      });
+    }
+    });
+  }); 
 }
 
 

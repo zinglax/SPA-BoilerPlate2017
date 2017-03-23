@@ -43,7 +43,10 @@ def process_ajax_action(request, **kwargs):
         '''init.
         '''
         contents_html = render_html_from_action('init', {})
-        return json.dumps({'status': 'OK', "init": contents_html})
+        toolbox_url = url_for('static', filename='toolbox.xml')
+        return json.dumps({'status': 'OK',
+                           "init": contents_html,
+                           "toolbox_url": toolbox_url})
 
     if request.get_json()['action'] == "generate_site":
         '''generate_site.
@@ -77,10 +80,12 @@ def process_ajax_action(request, **kwargs):
             pooled_server_ip="104.131.106.63",
             ssh_key="/home/dylan/.ssh/digital_ocean",
             project_name=request.get_json()['data']['domain'],
-            project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/" + request.get_json()['data']['domain'],
+            project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/"
+            + request.get_json()['data']['domain'],
             venv_name=request.get_json()['data']['domain'],
             production_subdomain=request.get_json()['data']['domain'],
-            development_subdomain="dev." + request.get_json()['data']['domain'],
+            development_subdomain="dev." +
+            request.get_json()['data']['domain'],
             pages=request.get_json()['data']['pages'])
 
         contents_html = render_html_from_action('post_project_json', {})
