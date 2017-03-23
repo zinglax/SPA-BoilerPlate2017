@@ -187,6 +187,104 @@ function init_local_saves(){
 
 }
 
+
+
+var BlocksToHTML = {
+
+    replaceElmTag: function(elm, new_tag) {
+        // Grab the original element
+        var original = elm
+            // Create a replacement tag of the desired type
+        var replacement = document.createElement(new_tag);
+
+        // Grab all of the original's attributes, and pass them to the replacement
+        for (var i = 0, l = original.attributes.length; i < l; ++i) {
+            var nodeName = original.attributes.item(i).nodeName;
+            var nodeValue = original.attributes.item(i).nodeValue;
+            replacement.setAttribute(nodeName, nodeValue);
+        }
+
+        // Persist contents
+        replacement.innerHTML = original.innerHTML;
+
+        // Switch!
+        original.parentNode.replaceChild(replacement, original);
+    },
+
+    traverse_order: function(xml, selector) {
+        var
+            x,
+            ar = []
+            //
+        ;
+
+        $(xml).find(selector).each(function() {
+            ar.push({
+                length: $(this).parents().length,
+                elmt: $(this)
+            });
+        });
+
+        ar.sort(function(a, b) {
+            if (a.length - b.length > 0) {
+                return -1;
+            }
+
+            if (a.length - b.length < 0) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        for (var i = 0; i < ar.length; i++) {
+            x += (ar[i].elmt.attr("type")) + ' - ';
+        };
+
+        return {
+            "list": ar,
+            "string": x
+        };
+    },
+
+    blocks_to_page: function() {
+
+        var
+            blocks,
+            statements
+            //
+        ;
+
+        var xml = Blockly.Xml.workspaceToDom(workspace);
+
+        blocks = BlocksToHTML.traverse_order(xml, "block");
+        statements = BlocksToHTML.traverse_order(xml, "statement");
+
+        for (var i = 0; i < blocks["list"].length; i++) {
+            $(blocks["list"][i].elmt).replaceWith('<' + blocks["list"][i].elmt.attr("type") + '>' + blocks["list"][i].elmt.html() + '</' + blocks["list"][i].elmt.attr("type") + '>');
+        }
+
+        $(xml).remove("next");
+        $(xml).remove("shadow");
+
+        for (var i = 0; i < statements["list"].length; i++) {
+            $(statements["list"][i].elmt).replaceWith($(statements["list"][i].elmt).html());
+        }
+
+        $(xml).find("statement").each(function(index) {
+            $(this).after($(this).html());
+            $(this).remove();
+        })
+
+        console.log($("#output").html($(xml).html()));
+    },
+
+
+};
+
+
+
+
 /** 
  * Sleep time expects milliseconds
  * @param  {[type]}
