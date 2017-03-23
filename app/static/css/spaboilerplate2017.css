@@ -87,3 +87,24 @@ ul {
 	border-radius: 30px
 	background: rgba(255,255,255,0.8);
 }
+
+label {
+	color : #EC8440;
+}
+
+#blocklyDiv svg.blocklySvg {
+	background: #343D44;
+
+}
+
+
+.blocklySelected>.blocklyPath {
+    stroke: #EC8440;
+    stroke-width: 4px;
+}
+
+
+div.blocklyToolboxDiv {
+	color : #EC8440;
+	background-color: rgba(98, 161, 210, .4);
+}
