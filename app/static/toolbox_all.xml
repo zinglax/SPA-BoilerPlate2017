@@ -1,0 +1,573 @@
+<xml id="toolbox" style="display: none">
+
+
+    <category colour="230" name="Tree">
+      
+          <block type="boiler_page"></block>
+
+    </category>
+  
+
+    <category colour="90" name="CSS">
+
+          <block type="css_property"></block>
+    </category>
+
+    <category colour="60" name="HTML">
+
+          <block type="html_text"></block>
+
+          <block type="attr"></block>
+        
+          <block type="!DOCTYPE"></block>
+        
+          <block type="a"></block>
+        
+          <block type="abbr"></block>
+        
+          <block type="acronym"></block>
+        
+          <block type="address"></block>
+        
+          <block type="applet"></block>
+        
+          <block type="area"></block>
+        
+          <block type="article"></block>
+        
+          <block type="aside"></block>
+        
+          <block type="audio"></block>
+        
+          <block type="b"></block>
+        
+          <block type="base"></block>
+        
+          <block type="basefont"></block>
+        
+          <block type="bdi"></block>
+        
+          <block type="bdo"></block>
+        
+          <block type="big"></block>
+        
+          <block type="blockquote"></block>
+        
+          <block type="body"></block>
+        
+          <block type="br"></block>
+        
+          <block type="button"></block>
+        
+          <block type="canvas"></block>
+        
+          <block type="caption"></block>
+        
+          <block type="center"></block>
+        
+          <block type="cite"></block>
+        
+          <block type="code"></block>
+        
+          <block type="col"></block>
+        
+          <block type="colgroup"></block>
+        
+          <block type="datalist"></block>
+        
+          <block type="dd"></block>
+        
+          <block type="del"></block>
+        
+          <block type="details"></block>
+        
+          <block type="dfn"></block>
+        
+          <block type="dialog"></block>
+        
+          <block type="dir"></block>
+        
+          <block type="div"></block>
+        
+          <block type="dl"></block>
+        
+          <block type="dt"></block>
+        
+          <block type="em"></block>
+        
+          <block type="embed"></block>
+        
+          <block type="fieldset"></block>
+        
+          <block type="figcaption"></block>
+        
+          <block type="figure"></block>
+        
+          <block type="font"></block>
+        
+          <block type="footer"></block>
+        
+          <block type="form"></block>
+        
+          <block type="frame"></block>
+        
+          <block type="frameset"></block>
+        
+          <block type="h1"></block>
+        
+          <block type="h2"></block>
+        
+          <block type="h3"></block>
+        
+          <block type="h4"></block>
+        
+          <block type="h5"></block>
+        
+          <block type="h6"></block>
+        
+          <block type="head"></block>
+        
+          <block type="header"></block>
+        
+          <block type="hr"></block>
+        
+          <block type="html"></block>
+        
+          <block type="i"></block>
+        
+          <block type="iframe"></block>
+        
+          <block type="img"></block>
+        
+          <block type="input"></block>
+        
+          <block type="ins"></block>
+        
+          <block type="kbd"></block>
+        
+          <block type="keygen"></block>
+        
+          <block type="label"></block>
+        
+          <block type="legend"></block>
+        
+          <block type="li"></block>
+        
+          <block type="link"></block>
+        
+          <block type="main"></block>
+        
+          <block type="map"></block>
+        
+          <block type="mark"></block>
+        
+          <block type="menu"></block>
+        
+          <block type="menuitem"></block>
+        
+          <block type="meta"></block>
+        
+          <block type="meter"></block>
+        
+          <block type="nav"></block>
+        
+          <block type="noframes"></block>
+        
+          <block type="noscript"></block>
+        
+          <block type="object"></block>
+        
+          <block type="ol"></block>
+        
+          <block type="optgroup"></block>
+        
+          <block type="option"></block>
+        
+          <block type="output"></block>
+        
+          <block type="p"></block>
+        
+          <block type="param"></block>
+        
+          <block type="picture"></block>
+        
+          <block type="pre"></block>
+        
+          <block type="progress"></block>
+        
+          <block type="q"></block>
+        
+          <block type="rp"></block>
+        
+          <block type="rt"></block>
+        
+          <block type="ruby"></block>
+        
+          <block type="s"></block>
+        
+          <block type="samp"></block>
+        
+          <block type="script"></block>
+        
+          <block type="section"></block>
+        
+          <block type="select"></block>
+        
+          <block type="small"></block>
+        
+          <block type="source"></block>
+        
+          <block type="span"></block>
+        
+          <block type="strike"></block>
+        
+          <block type="strong"></block>
+        
+          <block type="style"></block>
+        
+          <block type="sub"></block>
+        
+          <block type="summary"></block>
+        
+          <block type="sup"></block>
+        
+          <block type="table"></block>
+        
+          <block type="tbody"></block>
+        
+          <block type="td"></block>
+        
+          <block type="textarea"></block>
+        
+          <block type="tfoot"></block>
+        
+          <block type="th"></block>
+        
+          <block type="thead"></block>
+        
+          <block type="time"></block>
+        
+          <block type="title"></block>
+        
+          <block type="tr"></block>
+        
+          <block type="track"></block>
+        
+          <block type="tt"></block>
+        
+          <block type="u"></block>
+        
+          <block type="ul"></block>
+        
+          <block type="var"></block>
+        
+          <block type="video"></block>
+        
+          <block type="wbr"></block>
+        
+    </category>
+
+  
+
+    <category id="catLogic" colour="210" name="Logic">
+      <block type="controls_if"></block>
+      <block type="logic_compare"></block>
+      <block type="logic_operation"></block>
+      <block type="logic_negate"></block>
+      <block type="logic_boolean"></block>
+      <block type="logic_null"></block>
+      <block type="logic_ternary"></block>
+    </category>
+    <category id="catLoops" colour="120" name="Loops">
+      <block type="controls_repeat_ext">
+        <value name="TIMES">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_whileUntil"></block>
+      <block type="controls_for">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+        <value name="BY">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="controls_forEach"></block>
+      <block type="controls_flow_statements"></block>
+    </category>
+    <category id="catMath" colour="230" name="Math">
+      <block type="math_number"></block>
+      <block type="math_arithmetic">
+        <value name="A">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="B">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_single">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_trig">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">45</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constant"></block>
+      <block type="math_number_property">
+        <value name="NUMBER_TO_CHECK">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_change">
+        <value name="DELTA">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_round">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">3.1</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_on_list"></block>
+      <block type="math_modulo">
+        <value name="DIVIDEND">
+          <shadow type="math_number">
+            <field name="NUM">64</field>
+          </shadow>
+        </value>
+        <value name="DIVISOR">
+          <shadow type="math_number">
+            <field name="NUM">10</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_constrain">
+        <value name="VALUE">
+          <shadow type="math_number">
+            <field name="NUM">50</field>
+          </shadow>
+        </value>
+        <value name="LOW">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="HIGH">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_int">
+        <value name="FROM">
+          <shadow type="math_number">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="math_random_float"></block>
+    </category>
+    <category id="catText" colour="160" name="Text">
+      <block type="text"></block>
+      <block type="text_join"></block>
+      <block type="text_append">
+        <value name="TEXT">
+          <shadow type="text"></shadow>
+        </value>
+      </block>
+      <block type="text_length">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_isEmpty">
+        <value name="VALUE">
+          <shadow type="text">
+            <field name="TEXT"></field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">text</field>
+          </block>
+        </value>
+        <value name="FIND">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_charAt">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">text</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_getSubstring">
+        <value name="STRING">
+          <block type="variables_get">
+            <field name="VAR">text</field>
+          </block>
+        </value>
+      </block>
+      <block type="text_changeCase">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_trim">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_print">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="text_prompt_ext">
+        <value name="TEXT">
+          <shadow type="text">
+            <field name="TEXT">abc</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <category id="catLists" colour="260" name="Lists">
+      <block type="lists_create_with">
+        <mutation items="0"></mutation>
+      </block>
+      <block type="lists_create_with"></block>
+      <block type="lists_repeat">
+        <value name="NUM">
+          <shadow type="math_number">
+            <field name="NUM">5</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_length"></block>
+      <block type="lists_isEmpty"></block>
+      <block type="lists_indexOf">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">list</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getIndex">
+        <value name="VALUE">
+          <block type="variables_get">
+            <field name="VAR">list</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_setIndex">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">list</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_getSublist">
+        <value name="LIST">
+          <block type="variables_get">
+            <field name="VAR">list</field>
+          </block>
+        </value>
+      </block>
+      <block type="lists_split">
+        <value name="DELIM">
+          <shadow type="text">
+            <field name="TEXT">,</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="lists_sort"></block>
+    </category>
+    <category id="catColour" colour="20" name="Colour">
+      <block type="colour_picker"></block>
+      <block type="colour_random"></block>
+      <block type="colour_rgb">
+        <value name="RED">
+          <shadow type="math_number">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+        <value name="GREEN">
+          <shadow type="math_number">
+            <field name="NUM">50</field>
+          </shadow>
+        </value>
+        <value name="BLUE">
+          <shadow type="math_number">
+            <field name="NUM">0</field>
+          </shadow>
+        </value>
+      </block>
+      <block type="colour_blend">
+        <value name="COLOUR1">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#ff0000</field>
+          </shadow>
+        </value>
+        <value name="COLOUR2">
+          <shadow type="colour_picker">
+            <field name="COLOUR">#3333ff</field>
+          </shadow>
+        </value>
+        <value name="RATIO">
+          <shadow type="math_number">
+            <field name="NUM">0.5</field>
+          </shadow>
+        </value>
+      </block>
+    </category>
+    <sep></sep>
+    <category id="catVariables" colour="330" custom="VARIABLE" name="Variables"></category>
+    <category id="catFunctions" colour="290" custom="PROCEDURE" name="Functions"></category>
+  </xml>
