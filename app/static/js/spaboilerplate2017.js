@@ -40,6 +40,7 @@ function action_init() {
         $("#spa").empty();
         $("#spa").html(response['init']);
         init_blockly(response['toolbox_url'])
+        init_local_saves();
     }
     run_ajax_action("init", data, success);
 }
@@ -139,6 +140,52 @@ function init_blockly(toolbox_url){
   }); 
 }
 
+
+function init_local_saves(){  
+
+  $('#save_local').click(function(ev) {
+      // on local save
+
+      ev.stopPropagation();
+      ev.preventDefault();
+
+      var xml = Blockly.Xml.workspaceToDom(workspace);
+      var xmlText = new XMLSerializer().serializeToString(xml);
+      var save_name = "";
+      var localsaves =  JSON.parse(localStorage.getItem('localsaves'));
+
+      if (localsaves == null){
+          localStorage.setItem('localsaves','{}');
+          var temp = localStorage.getItem('localsaves');
+          localsaves = JSON.parse(temp);
+      }
+      save_name = $("#save_local_name").val();
+      localsaves[save_name] = xmlText;
+      localStorage.setItem("localsaves",JSON.stringify(localsaves));
+      console.log("LOCAL SAVE: " + save_name);
+  });
+
+
+  $('#load_local').click(function(ev) {
+      // on load local
+      ev.stopPropagation();
+      ev.preventDefault();
+
+      var load_name = "";
+      load_name = $("#load_local_name").val();
+
+      var temp = localStorage.getItem("localsaves");
+      if (temp == null){
+          localStorage.setItem('localsaves','{}');
+          return;
+      }
+
+      var localsaves =  JSON.parse(temp);
+      Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(localsaves[load_name]), workspace);
+      console.log("LOCAL LOAD: " + load_name);
+  });
+
+}
 
 /** 
  * Sleep time expects milliseconds

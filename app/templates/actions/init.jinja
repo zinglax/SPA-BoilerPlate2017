@@ -13,7 +13,15 @@
 <input type="button" class="btn btn-primary" value="Post Project JSON" onclick="action_post_project_json();">
 
 
-<div id="blocklyDiv" style="height: 550px;"></div>
+<div id="blocklyDiv" style="width: 430px; height: 550px;"></div>
+
+<div id="local_storage_workspace_save">
+	<label>Save:<input id="save_local_name" type="text" placeholder="Name"/></label>
+	<input type="button" id="save_local" value="Local Save">
+	<label>Load:<input id="load_local_name" type="text" placeholder="Saved Name"/></label>
+	<input type="button" id="load_local" value="Local Load">
+
+</div>
 
 
 
