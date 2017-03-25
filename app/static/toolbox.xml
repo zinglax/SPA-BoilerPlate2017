@@ -1,17 +1,27 @@
 <xml id="toolbox" style="display: none">
 
 
-    <category colour="230" name="Tree">
+    <category colour="230" name="Boiler">
       
           <block type="boiler_page"></block>
 
+          <block type="is_home"></block>
+          
     </category>
   
 
     <category colour="90" name="CSS">
 
+          <block type="css_file"></block>
+
+          <block type="css_rule"></block>
+
           <block type="css_property"></block>
+
+          <block type="css_include"></block>
+    
     </category>
+
 
     <category colour="60" name="HTML">
 

@@ -2,6 +2,37 @@
 
 CSS =========================================================
 */
+
+Blockly.Blocks['css_file'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("CSS :")
+        .appendField(new Blockly.FieldTextInput("file name"), "file_name");
+    this.appendStatementInput("rules")
+        .setCheck(null);
+    this.setColour(90);
+    this.setTooltip('CSS file');
+    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+  }
+};
+
+
+Blockly.Blocks['css_rule'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("rule :")
+        .appendField(new Blockly.FieldTextInput("css_selector"), "rule");
+    this.appendStatementInput("properties")
+        .setCheck(null);
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(90);
+    this.setTooltip('CSS rule');
+    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+  }
+};
+
+
 Blockly.Blocks['css_property'] = {
   init: function() {
     this.appendDummyInput()
@@ -17,6 +48,57 @@ Blockly.Blocks['css_property'] = {
     this.setHelpUrl('');
   }
 };
+
+
+Blockly.Blocks['css_include'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("    ")
+        .appendField("Include CSS :")
+        .appendField(new Blockly.FieldTextInput("file name"), "file_name");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(90);
+    this.setTooltip('CSS include');
+    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+  }
+};
+
+
+/**
+
+boiler ========================================================
+*/
+
+
+Blockly.Blocks['boiler_page'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("Page :")
+        .appendField(new Blockly.FieldTextInput("project_name"), "name");
+    this.appendStatementInput("inner")
+        .setCheck(null);
+    this.setColour(230);
+    this.setTooltip('');
+    this.setHelpUrl('');
+  }
+};
+
+
+Blockly.Blocks['is_home'] = {
+  init: function() {
+    this.appendDummyInput()
+        .appendField("is_home :")
+        .appendField(new Blockly.FieldCheckbox("TRUE"), "value");
+    this.setPreviousStatement(true, null);
+    this.setNextStatement(true, null);
+    this.setColour(230);
+    this.setTooltip('Is this page the home page? will only take one, use carefully.');
+    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+  }
+};
+
+
 
 
 /**
@@ -48,19 +130,6 @@ Blockly.Blocks['attr'] = {
     this.setPreviousStatement(true, null);
     this.setNextStatement(true, null);
     this.setColour(60);
-    this.setTooltip('');
-    this.setHelpUrl('');
-  }
-};
-
-Blockly.Blocks['boiler_page'] = {
-  init: function() {
-    this.appendDummyInput()
-        .appendField("Page :")
-        .appendField(new Blockly.FieldTextInput("project_name"), "name");
-    this.appendStatementInput("inner")
-        .setCheck(null);
-    this.setColour(230);
     this.setTooltip('');
     this.setHelpUrl('');
   }
