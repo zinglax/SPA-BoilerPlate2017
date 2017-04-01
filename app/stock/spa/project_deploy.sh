@@ -32,28 +32,24 @@ echo "Created virtual env $VENV_DIR/$1"
 pip3 install -r $DEPLOYED_PROJECT_DIR/requirements.txt
 echo "Installing Requirements"
 
-
 # Copy apach2 conf file to sites-available
 cp $DEPLOYED_PROJECT_DIR/$1.conf $APACHE_SITES_DIR
 echo "cp $DEPLOYED_PROJECT_DIR/$APACHE_CONF_FILE $APACHE_SITES_DIR"
 
-
 # Enable the site
-a2ensite $APACHE_SITES_DIR/$1.conf
+a2ensite "$APACHE_SITES_DIR/$1.conf"
 echo "Enabled apache site: $APACHE_SITES_DIR/$APACHE_CONF_FILE"
-
 
 # Enable the mods
 a2enmod wsgi
 a2enmod ssl
 echo "Enabled Apache2 mods"
 
-
 # Lets Encrypt
-letsencrypt -n --apache -d $1.zinglax.com
-echo "letsencrypt"
+# letsencrypt -n --logs-dir /var/www/$1 --apache -d $1.zinglax.com
+# letsencrypt -n --agree-tos --email dylanzingler@gmail.com --logs-dir /var/www/LETSENCRYPT --config-dir /var/www/LETSENCRYPT --work-dir /var/www/LETSENCRYPT --apache -d $1.zinglax.com
 
 # Restart the apache server
-service apache2 restart
+# service /usr/sbin/apache2ctl restart
 
-echo "restarting apache"	
+

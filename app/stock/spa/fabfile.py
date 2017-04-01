@@ -42,6 +42,9 @@ def deploy(
 
     sudo("chmod 755 %s" % os.path.join(path_to_project, project_name))
 
+    # Make Fab file executable
+    sudo("chmod 777 %s" % os.path.join(path_to_project, project_name, "fabfile.py"))
+
     # Activate the environment and install requirements
     run('. %s/%s/bin/activate' % (remote_env_path, env_name))
     run('pip3 install -r %s' % path_to_requirements_txt)
@@ -79,3 +82,12 @@ def deploy_prod():
 
 def deploy_dev():
     deploy(domain="__var_development_subdomain__")
+
+
+def deploy_on_local_apache():
+    print("dylanRules")
+    env.user = "root"
+    env.hosts = ['zinglax']
+    deploy()
+
+

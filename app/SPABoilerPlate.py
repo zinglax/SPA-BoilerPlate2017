@@ -272,6 +272,14 @@ class SpaBoiler():
             new_file=apache_file,
             template_vars=template_vars)
 
+        # Create project_deploy.sh
+        project_deploy_file = os.path.join(project_dir, "project_deploy.sh")
+        stock_file = os.path.join(self.stock_dir, "spa", "project_deploy.sh")
+        self.stock_project_file(
+            stock_file=stock_file,
+            new_file=project_deploy_file,
+            template_vars=template_vars)
+
         # Create fabfile.py
         fabfile_file = os.path.join(project_dir, "fabfile.py")
         stock_file = os.path.join(self.stock_dir, "spa", "fabfile.py")
@@ -435,6 +443,8 @@ class SpaBoiler():
 
                     # Write line to new file.
                     n.write(line)
+
+                print("Closed File: " + new_file)
 
         # Return whether new file exists or not.
         return os.path.exists(new_file)

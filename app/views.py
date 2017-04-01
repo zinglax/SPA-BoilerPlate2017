@@ -3,6 +3,7 @@ from app import app
 from flask import render_template, request, jsonify, url_for, flash, redirect, send_from_directory
 import json
 import jinja2
+import subprocess
 
 from .SPABoilerPlate import SpaBoiler
 
@@ -72,6 +73,7 @@ def process_ajax_action(request, **kwargs):
         '''post_project_json.
         '''
         print("post_project_json")
+        template_data = {}
 
         spa_boiler = SpaBoiler(cur_dir="/var/www/spaboilerplate2017/app/")
         spa_boiler.create_spa_with_pages(
@@ -80,18 +82,82 @@ def process_ajax_action(request, **kwargs):
             pooled_server_ip="104.131.106.63",
             ssh_key="/home/dylan/.ssh/digital_ocean",
             project_name=request.get_json()['data']['domain'],
-            project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/"
-            + request.get_json()['data']['domain'],
+            project_path="/var/www/spaboilerplate2017/app/projects/" +
+            request.get_json()['data']['domain'],
             venv_name=request.get_json()['data']['domain'],
             production_subdomain=request.get_json()['data']['domain'],
             development_subdomain="dev." +
             request.get_json()['data']['domain'],
             pages=request.get_json()['data']['pages'])
 
-        contents_html = render_html_from_action('post_project_json', {})
-        print(contents_html)
-        print(request.get_json())
+        cmd = ['/var/www/spaboilerplate2017/project_deploy.sh', request.get_json()['data']['domain']]
+        cwd = os.getcwd()
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, cwd=cwd)
+        output = ""
+        for line in p.stdout:
+            output = output + line.decode("utf-8")
+        p.wait()
 
+
+
+        """
+        # Deploy the site
+        cmd = ['fab', 'deploy_on_local_apache']
+        cwd = os.path.join("/var/www/spaboilerplate2017/app/projects",
+                           request.get_json()['data']['domain'])
+        p = subprocess.Popen(cmd, stdout=subprocess.PIPE, cwd=cwd)
+
+        output = ""
+        for line in p.stdout:
+            output = output + line.decode("utf-8")
+        p.wait()
+
+
+        template_data = {
+            "domain_name" : request.get_json()['data']['domain'],
+            "output" : output,
+            "returncode" : p.returncode
+        }
+        """
+
+        # Make Deploy Script Executable
+        # file = os.path.join("/var/www/spaboilerplate2017/app/projects",
+        #            request.get_json()['data']['domain'], "project_deploy.sh")
+        # cmd = ['chmod', "777",  'project_deploy.sh', file]
+        # cwd = os.path.join("/var/www/spaboilerplate2017/app/projects",
+        #                    request.get_json()['data']['domain'])
+        # print(cwd)
+        # p = subprocess.Popen(cmd, stdout=subprocess.PIPE, cwd=cwd)
+
+        # output = ""
+        # for line in p.stdout:
+        #     output = output + line.decode("utf-8")
+        # p.wait()
+
+
+        # print("Roger Roger")
+
+
+        # # Testing
+        # # ssh -i /CERTS/DZLaptop root@greengablesflorist 
+        # cmd = ["ssh", "-i", "/CERTS/DZLaptop", "root@greengablesflorist", "'/PROGRAMS/deploy.sh" + request.get_json()['data']['domain'] + "'" ]
+
+        # # Deploy the site
+        # # cmd = ['./project_deploy.sh', request.get_json()['data']['domain'], " > output.txt"]
+        # cwd = os.path.join("/var/www/spaboilerplate2017/app/projects",
+        #                    request.get_json()['data']['domain'])
+        # p = subprocess.Popen(cmd, stdout=subprocess.PIPE, cwd=cwd)
+
+        # output = ""
+        # for line in p.stdout:
+        #     output = output + line.decode("utf-8")       
+        # # p.wait()
+
+        template_data = {
+            "domain_name" : request.get_json()['data']['domain'],
+        }        
+
+        contents_html = render_html_from_action('post_project_json', template_data)
         return json.dumps({'status': 'OK', "post_project_json": contents_html})
 
     # No action found
