@@ -46,8 +46,8 @@ a2enmod ssl
 echo "Enabled Apache2 mods"
 
 # Lets Encrypt
-# letsencrypt -n --logs-dir /var/www/$1 --apache -d $1.zinglax.com
-# letsencrypt -n --agree-tos --email dylanzingler@gmail.com --logs-dir /var/www/LETSENCRYPT --config-dir /var/www/LETSENCRYPT --work-dir /var/www/LETSENCRYPT --apache -d $1.zinglax.com
+# letsencrypt -n --logs-dir /var/www/$1 --apache -d $1.flaskcart.co
+# letsencrypt -n --agree-tos --email dylanzingler@gmail.com --logs-dir /var/www/LETSENCRYPT --config-dir /var/www/LETSENCRYPT --work-dir /var/www/LETSENCRYPT --apache -d $1.flaskcart.co
 
 # Restart the apache server
 # service /usr/sbin/apache2ctl restart

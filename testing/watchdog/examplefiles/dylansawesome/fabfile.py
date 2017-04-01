@@ -59,8 +59,8 @@ def deploy(path_to_project = "/var/www/",
     run('a2enmod ssl')
 
     # Lets Encrypt
-    #run('/opt/letsencrypt/letsencrypt-auto --apache -d zinglax.com -d ' + domain + '.zinglax.com')
-    run('letsencrypt --apache -d ' + domain + '.zinglax.com')
+    #run('/opt/letsencrypt/letsencrypt-auto --apache -d zinglax.com -d ' + domain + '.flaskcart.co')
+    run('letsencrypt --apache -d ' + domain + '.flaskcart.co')
 
     # Restart the apache server
     run('service apache2 restart')    

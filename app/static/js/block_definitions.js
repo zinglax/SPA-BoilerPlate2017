@@ -12,7 +12,7 @@ Blockly.Blocks['css_file'] = {
         .setCheck(null);
     this.setColour(90);
     this.setTooltip('CSS file');
-    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+    this.setHelpUrl('https://spaboilerplate2017.flaskcart.co/');
   }
 };
 
@@ -28,7 +28,7 @@ Blockly.Blocks['css_rule'] = {
     this.setNextStatement(true, null);
     this.setColour(90);
     this.setTooltip('CSS rule');
-    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+    this.setHelpUrl('https://spaboilerplate2017.flaskcart.co/');
   }
 };
 
@@ -60,7 +60,7 @@ Blockly.Blocks['css_include'] = {
     this.setNextStatement(true, null);
     this.setColour(90);
     this.setTooltip('CSS include');
-    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+    this.setHelpUrl('https://spaboilerplate2017.flaskcart.co/');
   }
 };
 
@@ -94,7 +94,7 @@ Blockly.Blocks['is_home'] = {
     this.setNextStatement(true, null);
     this.setColour(230);
     this.setTooltip('Is this page the home page? will only take one, use carefully.');
-    this.setHelpUrl('https://spaboilerplate2017.zinglax.com/');
+    this.setHelpUrl('https://spaboilerplate2017.flaskcart.co/');
   }
 };
 
