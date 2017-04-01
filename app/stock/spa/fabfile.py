@@ -70,7 +70,7 @@ def deploy(
     run('a2enmod ssl')
 
     # Lets Encrypt
-    run('letsencrypt -n --apache -d ' + domain + '.flaskcart.co')
+    run('letsencrypt -n --agree-tos --email dylanzingler@gmail.com --apache -d ' + domain + '.flaskcart.co')
 
     # Restart the apache server
     run('service apache2 restart')

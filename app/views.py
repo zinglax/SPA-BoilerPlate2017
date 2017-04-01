@@ -79,8 +79,8 @@ def process_ajax_action(request, **kwargs):
         spa_boiler.create_spa_with_pages(
             semantic_name=request.get_json()['data']['domain'],
             name=request.get_json()['data']['domain'],
-            pooled_server_ip="104.131.106.63",
-            ssh_key="/home/dylan/.ssh/digital_ocean",
+            pooled_server_ip="192.241.175.66",
+            ssh_key="/home/dylan/DZLaptop",
             project_name=request.get_json()['data']['domain'],
             project_path="/var/www/spaboilerplate2017/app/projects/" +
             request.get_json()['data']['domain'],

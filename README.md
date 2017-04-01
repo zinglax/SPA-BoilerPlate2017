@@ -20,8 +20,8 @@ __var_development_subdomain__
 {
 "semantic_name" : "DylansAwesome",
 "name" : "dylansawesome",
-"pooled_server_ip" : "104.131.106.63",
-"ssh_key" : "/home/dylan/.ssh/digital_ocean",
+"pooled_server_ip" : "192.241.175.66",
+"ssh_key" : "/home/dylan/DZLaptop",
 "project_name" : "DylansAwesome",
 "project_path" : "/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/DylansAwesome",
 "venv_name" : "dylan",
@@ -34,8 +34,8 @@ __var_development_subdomain__
 (
 semantic_name="dylansawesome",
 name="dylansawesome",
-pooled_server_ip="104.131.106.63",
-ssh_key="/home/dylan/.ssh/digital_ocean",
+pooled_server_ip="192.241.175.66",
+ssh_key="/home/dylan/DZLaptop",
 project_name="dylansawesome",
 project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/dylansawesome",
 venv_name="dylansawesome",

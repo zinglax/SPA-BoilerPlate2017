@@ -7,8 +7,8 @@ from fabric.contrib.files import exists
 import os
 
 env.user = "root"
-env.hosts = ['104.131.106.63']
-env.key_filename = '/home/dylan/.ssh/digital_ocean'
+env.hosts = ['192.241.175.66']
+env.key_filename = '/home/dylan/DZLaptop'
 
 def deploy(path_to_project = "/var/www/", 
             project_name = "dylansawesome", 

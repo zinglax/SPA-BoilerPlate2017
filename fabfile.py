@@ -7,8 +7,8 @@ from fabric.contrib.files import exists
 import os
 
 env.user = "root"
-env.hosts = ['104.131.106.63']
-env.key_filename = '/home/dylan/.ssh/digital_ocean'
+env.hosts = ['192.241.175.66']
+env.key_filename = '/home/dylan/DZLaptop'
 
 
 def deploy(
@@ -68,7 +68,7 @@ def deploy(
 
     # Lets Encrypt
     #run('/opt/letsencrypt/letsencrypt-auto --apache -d zinglax.com -d ' + domain + '.flaskcart.co')
-    run('letsencrypt -n --apache -d ' + domain + '.flaskcart.co')
+    run('letsencrypt -n --agree-tos --email dylanzingler@gmail.com --apache -d ' + domain + '.flaskcart.co')
 
     # Restart the apache server
     run('service apache2 restart')

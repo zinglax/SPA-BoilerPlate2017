@@ -455,8 +455,8 @@ if __name__ == "__main__":
     spa_boiler.create_spa(
         semantic_name="spaboilerplate2017",
         name="spaboilerplate2017",
-        pooled_server_ip="104.131.106.63",
-        ssh_key="/home/dylan/.ssh/digital_ocean",
+        pooled_server_ip="192.241.175.66",
+        ssh_key="/home/dylan/DZLaptop",
         project_name="spaboilerplate2017",
         project_path="/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/projects/spaboilerplate2017",
         venv_name="spaboilerplate2017",
