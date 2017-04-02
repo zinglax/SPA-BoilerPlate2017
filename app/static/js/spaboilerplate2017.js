@@ -103,6 +103,7 @@ function action_post_project_json() {
         console.log(response['action_post_project_json']);
         $("#spa").empty();
         $("#spa").html(response['post_project_json']);
+        init_preview_window();
     }
     run_ajax_action("post_project_json", data, success);
 }
@@ -293,6 +294,15 @@ var BlocksToHTML = {
 function sleep(time) {
     return new Promise((resolve) => setTimeout(resolve, time));
 }
+
+
+function init_preview_window(){
+    $("#submit_preview_url").click(function() {
+      var preview_url = $("#preview_url").val();
+      $('#preview').attr('src', preview_url);
+    });
+}
+
 
 
 /** Workspace Main

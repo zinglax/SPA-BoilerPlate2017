@@ -7,6 +7,7 @@ import sys
 import time
 import logging
 import os
+import subprocess
 from watchdog.observers import Observer
 from watchdog.events import LoggingEventHandler
 from watchdog.events import FileSystemEventHandler
@@ -54,7 +55,7 @@ if __name__ == "__main__":
 
     # Custom observer watching /var/www/spaboilerplate2017/app/projects
     path = "/var/www/spaboilerplate2017/app/projects"
-    path = "/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/testing/watchdog"
+    #path = "/home/dylan/Desktop/GITHUBS/SPA-BoilerPlate2017/testing/watchdog"
     observer = Observer()
     observer.schedule(
         MyFileSystemEventHander(), path, recursive=True)
