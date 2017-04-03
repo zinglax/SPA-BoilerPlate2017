@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Parse Blockly Into Page</title>
+    <!-- Theme Color -->
+    <meta name="theme-color" content="darkslategrey">
+    <!-- Manifest JSON -->
+    <!-- <link rel="manifest" href="/manifest.json"> -->
+    <!-- Mobile Capable -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <!-- Favicon -->
+    <!-- <link rel="icon" href="./static/creeperface.jpg"> -->
+    <!-- Scale & Device Width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Jquery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <!-- Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <style>
+    h1 {
+        color: darkslategrey;
+    }
+    </style>
+</head>
+
+<body>
+    <xml type="project_xml" id="blockly_xml" style="display:none;" xmlns="http://www.w3.org/1999/xhtml">
+        <block type="css_file" id="[SLqO=Lp%PRG*pNP9MEr" collapsed="true" x="0" y="0">
+            <field name="file_name">theme</field>
+            <statement name="rules">
+                <block type="css_rule" id="4rqq*oXJ6Akyw$RC)0G0">
+                    <field name="rule">h1, h4;</field>
+                    <statement name="properties">
+                        <block type="css_property" id=",YePf=B~bTMcZ/}EMjY0">
+                            <field name="property">color</field>
+                            <field name="name">darkslategrey</field>
+                        </block>
+                    </statement>
+                    <next>
+                        <block type="css_rule" id="(DM@d6u_IM%TNxA+Jb]3">
+                            <field name="rule">li</field>
+                            <statement name="properties">
+                                <block type="css_property" id="R8C@TU?,))L+Z46$M(2@">
+                                    <field name="property">color</field>
+                                    <field name="name">olive</field>
+                                </block>
+                            </statement>
+                        </block>
+                    </next>
+                </block>
+            </statement>
+        </block>
+        <block type="boiler_page" id="~cJ](jF(LS3jY5W@+N?5" collapsed="true" x="0" y="52">
+            <field name="name">about</field>
+            <statement name="inner">
+                <block type="is_home" id="}rfbLUN+!R2s7M1*8WX?">
+                    <field name="value">TRUE</field>
+                    <next>
+                        <block type="css_include" id="7VB}|j=}37n8}utP/U?G">
+                            <field name="file_name">theme</field>
+                            <next>
+                                <block type="h1" id="[2c{atdwT+`$XXe@XjM%">
+                                    <statement name="innerHtml">
+                                        <block type="html_text" id="bsY=4q8wAi^:Ev.JwG0m">
+                                            <field name="value">Company: About Us</field>
+                                        </block>
+                                    </statement>
+                                    <next>
+                                        <block type="p" id="EnyDH=oQ#JE/dvYZ!K-:">
+                                            <statement name="innerHtml">
+                                                <block type="html_text" id="hVh{(|u`$tB0;U;UxL5l">
+                                                    <field name="value"> Zombie ipsum reversus ab viral inferno, nam rick grimes malum cerebro. De carne lumbering animata corpora quaeritis. Summus brains sit​​, morbo vel maleficia? De apocalypsi gorger omero undead survivor dictum mauris. Hi mindless mortuis soulless creaturas, imo evil stalking monstra adventus resi dentevil vultus comedat cerebella viventium. Qui animated corpse, cricket bat max brucks terribilem incessu zomby. The voodoo sacerdos flesh eater, suscitat mortuos comedere carnem virus. Zonbi tattered for solum oculi eorum defunctis go lum cerebro. Nescio brains an Undead zombies. Sicut malus putrid voodoo horror. Nigh tofth eliv ingdead.</field>
+                                                </block>
+                                            </statement>
+                                        </block>
+                                    </next>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
+                </block>
+            </statement>
+        </block>
+        <block type="boiler_page" id="4[Af;)Z3YhQ%Gcutq(9:" x="0" y="104">
+            <field name="name">pagetwo</field>
+            <statement name="inner">
+                <block type="css_include" id="~xEsYV#|fenizQwG{{S1">
+                    <field name="file_name">theme</field>
+                    <next>
+                        <block type="h4" id="EN6D_V6ERgs01k,zTXl9">
+                            <statement name="innerHtml">
+                                <block type="html_text" id="6pQ93ZHqk({[}}!1O/In">
+                                    <field name="value">Company: Page Two</field>
+                                </block>
+                            </statement>
+                            <next>
+                                <block type="a" id="%,bzh#itpC:Dql7,=f[Q">
+                                    <statement name="innerHtml">
+                                        <block type="attr" id="s9Tzp]!]8$]+*3k.%ZhZ">
+                                            <field name="attr_name">href</field>
+                                            <field name="attr_value">https://spaboilerplate2017.flaskcart.co/</field>
+                                            <next>
+                                                <block type="html_text" id=":#f[V-j}0W)$3;1NnwRr">
+                                                    <field name="value">spaboilerplate2017.flaskcart.co</field>
+                                                </block>
+                                            </next>
+                                        </block>
+                                    </statement>
+                                    <next>
+                                        <block type="ol" id="o}?O6*Z.;Y2hq+p^gzNm">
+                                            <statement name="innerHtml">
+                                                <block type="li" id="DcX|X@q.od36{#*:hu6x">
+                                                    <statement name="innerHtml">
+                                                        <block type="html_text" id="UFR+IxTBE?Nv(.0,Gfmq">
+                                                            <field name="value">first we do this</field>
+                                                        </block>
+                                                    </statement>
+                                                    <next>
+                                                        <block type="li" id="gk^H3N%;,,5b(8hYPOj,">
+                                                            <statement name="innerHtml">
+                                                                <block type="html_text" id="g0XRG;4$`dbSA(2mHx*!">
+                                                                    <field name="value">then help with this</field>
+                                                                </block>
+                                                            </statement>
+                                                            <next>
+                                                                <block type="li" id="59NRLpQ[{3)+@[]iLsc_">
+                                                                    <statement name="innerHtml">
+                                                                        <block type="html_text" id="49cgNND]DPTo^jXK#4%$">
+                                                                            <field name="value">and finally we do this</field>
+                                                                        </block>
+                                                                    </statement>
+                                                                </block>
+                                                            </next>
+                                                        </block>
+                                                    </next>
+                                                </block>
+                                            </statement>
+                                        </block>
+                                    </next>
+                                </block>
+                            </next>
+                        </block>
+                    </next>
+                </block>
+            </statement>
+        </block>
+    </xml>
+    <h1>Welcome, Parsing Project XML now!</h1>
+    <div id="output"></div>
+    <script>
+    function output(out) {
+        $("#output").empty();
+        $("#output").html(out);
+    }
+
+	function traverse_order(xml, selector) {
+        var
+            x,
+            ar = []
+            //
+        ;
+        $(xml).find(selector).each(function() {
+            ar.push({
+                length: $(this).parents().length,
+                elmt: $(this)
+            });
+        });
+
+        ar.sort(function(a, b) {
+            if (a.length - b.length > 0) {
+                return -1;
+            }
+
+            if (a.length - b.length < 0) {
+                return 1;
+            }
+
+            return 0;
+        });
+
+        for (var i = 0; i < ar.length; i++) {
+            x += (ar[i].elmt.attr("type")) + ' - ';
+        };
+
+        return {
+            "list": ar,
+            "string": x
+        };
+    }
+
+    output(css);
+
+
+    var css_xml = $("#blockly_xml").find('block[type="css_file"]');
+    var pages_xml = $("#blockly_xml").find('block[type="boiler_page"]');
+    var pages = [];
+    var css = [];
+
+
+    // var next_tags = $("#blockly_xml").find("next");
+    // for (var i = 0; i < next_tags.length; i++){
+    // 	var html = $("#blockly_xml").find(next_tags[i]).html();
+    // 	$("#blockly_xml").find(next_tags[i]).after(html)
+    // 	$("#blockly_xml").remove(next_tags[i]);
+    // }
+
+    // Removal of nexts.
+    nexts = traverse_order($("#blockly_xml"), "next");
+    for (var i = 0; i < nexts["list"].length; i++) {
+    	var html = $(nexts["list"][i].elmt).html();
+    	$(nexts["list"][i].elmt).closest("block").after(html);
+    	$(nexts["list"][i].elmt).remove();
+    }
+
+    // Replacement of html_text.
+    texts = traverse_order($("#blockly_xml"), "block[type=html_text]")
+    for (var i = 0; i < texts["list"].length; i++) {
+    	var html = $(texts["list"][i].elmt).find("field[name=value]").html();
+    	$(texts["list"][i].elmt).after(html)
+    	$(texts["list"][i].elmt).remove();
+    }
+
+    // Replacement of attr blocks.
+    attrs = traverse_order($("#blockly_xml"), "block[type=attr]")
+    for (var i = 0; i < attrs["list"].length; i++) {
+    	var attr_name = $(attrs["list"][i].elmt).find("field[name=attr_name]").html();
+    	var attr_value = $(attrs["list"][i].elmt).find("field[name=attr_value]").html();
+    	var block =  $(attrs["list"][i].elmt).parent().closest("block");
+    	block.attr(attr_name, attr_value)
+    	$(attrs["list"][i].elmt).remove();
+    }
+
+    // Removal of statements.
+    statements = traverse_order($("#blockly_xml"), "statement");
+    for (var i = 0; i < statements["list"].length; i++) {
+    	var html = $(statements["list"][i].elmt).html();
+    	console.log(html);
+    	$(statements["list"][i].elmt).closest("block").append(html);
+    	$(statements["list"][i].elmt).remove();
+    }
+
+
+    // while ($("#blockly_xml").find("next").length > 0){
+    // 	$($("#blockly_xml").find("next").html()).after($("#blockly_xml").find("next"));
+    // }
+    // $("#blockly_xml").remove("next");
+
+
+/*
+    pages_xml.each(function(index) {
+        var page_object = {
+            name: null,
+            xml: null,
+            ishome: "FALSE",
+            html: null,
+            css: []
+        };
+        //page_object["xml"] = $(this).prop('outerHTML');
+        page_object["name"] = $(this).find('field[name="name"]').html();
+        page_object["css"].push($(this).find("block[type=css_include] field[name=file_name]").html());
+
+        if ($(this).has(('block[type="is_home"] field[name="value"]')).length) {
+            page_object["ishome"] = $(this).find('block[type="is_home"] field[name="value"]').html();
+        }
+
+        output($(this).find('block[type="is_home"] field[name="value"]').html());
+        output($(this).find('field[name="name"]').html());
+
+        inner = $(this).find("statement[name=inner]");
+        var html = `<div type="page" id="${ page_object["name"] }">${ inner }</div>`;
+        page_object["html"] = $(this).clone().find("block").unwrap("next").prop('outerHTML');
+        page_object["html"] = $(page_object["html"]).find("block").unwrap("statement").prop('outerHTML');
+
+
+        //page_object["html"] = $(this);
+
+        next = $(this).find("next");
+
+        console.log(next);
+
+        for (var i=0; i < next.length; i++){
+        	console.log($(next[i]).closest("block"));
+        	var block = $(next[i]).closest("block");
+        	var html = $(next[i]).html();
+
+        	//console.log($(this).find(next[i]).html());
+        	//$(next[i]).remove();
+        	$(next[i], this).remove();
+        	// $(this).remove(next[i]);
+        	$(this).find(block).append(html);
+        }
+
+        page_object["html"] = $(this).prop('outerHTML')
+
+
+
+
+        // page_object["html"] = page_object["html"].remove("statment")
+        pages.push(page_object);
+        output(JSON.stringify(page_object));
+
+    });
+*/
+    </script>
+</body>
+
+</html>
