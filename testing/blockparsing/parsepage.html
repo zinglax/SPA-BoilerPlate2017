@@ -594,15 +594,7 @@
         $(nexts["list"][i].elmt).remove();
     }
 
-    // Replacement of html_text.
-    texts = traverse_order($("#blockly_xml"), "block[type=html_text]")
-    for (var i = 0; i < texts["list"].length; i++) {
-        var html = $(texts["list"][i].elmt).find("field[name=value]").html();
-        $(texts["list"][i].elmt).after(html)
-        $(texts["list"][i].elmt).remove();
-    }
-
-    // Removal of statements.
+    // Removal of statement tags.
     statements = traverse_order($("#blockly_xml"), "statement");
     for (var i = 0; i < statements["list"].length; i++) {
         var html = $(statements["list"][i].elmt).html();
@@ -611,8 +603,15 @@
         $(statements["list"][i].elmt).remove();
     }
 
+    // Replacement of html_text.
+    texts = traverse_order($("#blockly_xml"), "block[type=html_text]")
+    for (var i = 0; i < texts["list"].length; i++) {
+        var html = $(texts["list"][i].elmt).find("field[name=value]").html();
+        $(texts["list"][i].elmt).after(html)
+        $(texts["list"][i].elmt).remove();
+    }
 
-    // Replacement of HTML Blocks
+    // Replacement of HTML Tag blocks.
     html_block_names = []
     for (var i = 0; i < html_texts.length; i++) {
         html_block_names.push(html_texts[i]["name"]);
@@ -632,7 +631,7 @@
     }
 
 
-    // Replacement of attr blocks.
+    // Replacement of HTML Attr blocks.
     attrs = traverse_order($("#blockly_xml"), "block[type=attr]")
     for (var i = 0; i < attrs["list"].length; i++) {
 
